@@ -1,5 +1,6 @@
 package com.example.newstak;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,8 +55,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
+    public int getItemCount() { return modelClassArrayList.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -69,6 +70,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             author=view.findViewById(R.id.author);
             imageView=view.findViewById(R.id.image);
             cardView =view.findViewById(R.id.cardView);
+            pulish = view.findViewById(R.id.publish);
+
         }
     }
 }
